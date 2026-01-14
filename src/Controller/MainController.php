@@ -6,10 +6,12 @@ use App\Repository\CategoryRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Routing\Attribute\Route;
+    
 
+#[Route('/', name: 'main_')]
 final class MainController extends AbstractController
 {
-    #[Route('/', name: 'main')]
+    #[Route('/', name: 'index')]
     public function index(CategoryRepository $categoryRepository): Response
     {
         return $this->render('main/index.html.twig', [
