@@ -20,7 +20,7 @@ class CategoryFixtures extends Fixture
     {
         $parent = $this->createCategory('Informatique', null, $manager);
         $this->createCategory('Ordinateurs Portables', $parent, $manager);
-        $this->createCategory('Ecran', $parent, $manager);
+        $this->createCategory('Ecrans', $parent, $manager);
         $this->createCategory('Souris', $parent, $manager);
 
         $parent = $this->createCategory('Mode', null, $manager);
@@ -37,6 +37,7 @@ class CategoryFixtures extends Fixture
         $category->setName($name);
         $category->setSlug($this->slugger->slug($category->getName())->lower());
         $category->setParent($parent);
+        $category->setCategoryOrder($this->cptCat);
         $manager->persist($category);
 
         $this->addReference('cat-'.$this->cptCat, $category);
